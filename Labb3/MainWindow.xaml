@@ -1,0 +1,100 @@
+﻿<Window
+    x:Class="Labb3ProgTemplate.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:Labb3ProgTemplate.Views"
+    Title="URANUS"
+    Width="800"
+    Height="550"
+    MinWidth="800"
+    MinHeight="550"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Tan" />
+            <Setter Property="Foreground" Value="SaddleBrown" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Sienna" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="Sienna" />
+        </Style>
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="Bisque" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="AntiqueWhite" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderBrush" Value="Tan" />
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="Background" Value="AntiqueWhite" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderBrush" Value="Tan" />
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="Background" Value="AntiqueWhite" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderBrush" Value="Tan" />
+            <Setter Property="Foreground" Value="DarkRed" />
+        </Style>
+        <Style TargetType="TabControl">
+            <Setter Property="Background" Value="Bisque" />
+        </Style>
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border
+                            x:Name="Border"
+                            Padding="5"
+                            Background="AntiqueWhite"
+                            SnapsToDevicePixels="True">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="Tan" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <TabControl>
+            <TabItem Name="LoginTab" Header="Login">
+                <views:LoginView />
+            </TabItem>
+            <TabItem
+                Name="AdminTab"
+                Header="Admin"
+                IsEnabled="False">
+                <views:AdminView Width="Auto" Height="Auto" />
+            </TabItem>
+            <TabItem
+                Name="ShopTab"
+                Header="Customer"
+                IsEnabled="False">
+                <views:ShopView />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
